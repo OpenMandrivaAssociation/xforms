@@ -3,17 +3,11 @@
 %define libname %mklibname forms %{major}
 %define	libname_devel %mklibname forms %{major} -d
 %define libname_static_devel %mklibname forms %{major} -s -d
-%define _xlibdir %{_prefix}/X11R6/%{_lib}
 
 %define	name	xforms
 %define	version	1.0
-#%define beta RC4
-#%if %beta
-#%define rversion %version%beta
-#%define release 0.3%{beta}mdk
-#%else
-%define release 3mdk
-#%endif
+%define release %mkrel 4
+
 
 
 Name:		%{name}
@@ -25,13 +19,11 @@ Group:		System/Libraries
 Url:		http://world.std.com/~xforms
 Source0:	http://savannah.nongnu.org/download/xforms/stable.pkg/1.0/%{name}-%{version}.tar.bz2
 Patch0:		xforms-1.0-makefile.patch.bz2
-BuildRequires:	XFree86-devel X11 libjpeg-devel xpm-devel
+BuildRequires:	X11-devel libjpeg-devel xpm-devel xpm-static-devel imake
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
-xforms is an X11 toolkit library.
-
-It has now gone Open Source (LGPL).
+xforms is a graphical toolkit library.
 
 %package -n	%{libname}
 Summary:	Libraries for the xforms toolkit
@@ -61,16 +53,12 @@ Requires:	%{libname_devel} = %{version}-%{release}
 This package contains the static libraries for xforms.
 
 %prep
-#%if %beta
-#%setup -q -n %name-%rversion
-#%else
 %setup -q 
-#%endif
 %patch0 -p1 -b .makefile
 
 %build
 (unset RPM_OPT_FLAGS; xmkmf -a)
-make CDEBUGFLAGS="$RPM_OPT_FLAGS" REQUIREDLIBS="-L%_xlibdir -lGL -ljpeg -lXpm"
+make CDEBUGFLAGS="$RPM_OPT_FLAGS" REQUIREDLIBS="-lGL -ljpeg -lXpm"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -85,17 +73,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-, root,root)
-%{_prefix}/X11R6/bin/*
+%_bindir/*
 
 %files -n %{libname}
 %defattr(-,root,root)
-%_xlibdir/*.so.*
+%_libdir/*.so.*
 
 %files -n %{libname_devel}
 %defattr(-,root,root)
-%{_prefix}/X11R6/include/*
-%_xlibdir/*.so
+%_includedir/*
+%_libdir/*.so
+%_libdir/*a
 
-%files -n %{libname_static_devel}
-%defattr(-,root,root)
-%_xlibdir/*.a
