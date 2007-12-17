@@ -18,7 +18,6 @@ Url:		http://world.std.com/~xforms
 Source0:	http://savannah.nongnu.org/download/xforms/stable.pkg/1.0/%{name}-%{version}.tar.bz2
 Patch0:		xforms-1.0-makefile.patch
 BuildRequires:	X11-devel libjpeg-devel xpm-devel xpm-static-devel imake
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 xforms is a graphical toolkit library.
