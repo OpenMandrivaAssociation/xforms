@@ -6,12 +6,11 @@
 
 %define	name	xforms
 %define	version	1.0
-%define release %mkrel 5
 
 Name:		%{name}
 Summary:	A X11 toolkit library
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 6
 License:	LGPL
 Group:		System/Libraries
 Url:		http://world.std.com/~xforms
