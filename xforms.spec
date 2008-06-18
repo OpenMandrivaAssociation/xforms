@@ -10,7 +10,7 @@
 Name:		%{name}
 Summary:	A X11 toolkit library
 Version:	%{version}
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	LGPL
 Group:		System/Libraries
 Url:		http://world.std.com/~xforms
