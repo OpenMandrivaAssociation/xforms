@@ -16,6 +16,7 @@ Group:		System/Libraries
 Url:		http://world.std.com/~xforms
 Source0:	http://savannah.nongnu.org/download/xforms/stable.pkg/1.0/%{name}-%{version}.tar.bz2
 Patch0:		xforms-1.0-makefile.patch
+Patch1:		xforms-1.0-fix-str-fmt.patch
 BuildRequires:	X11-devel libjpeg-devel xpm-devel xpm-static-devel imake
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -56,6 +57,7 @@ This package contains the static libraries for xforms.
 %prep
 %setup -q 
 %patch0 -p1 -b .makefile
+%patch1 -p0 -b .str
 
 %build
 (unset RPM_OPT_FLAGS; xmkmf -a)
