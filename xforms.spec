@@ -18,6 +18,7 @@ Source0:	http://savannah.nongnu.org/download/xforms/stable.pkg/1.0/%{name}-%{ver
 Patch0:		xforms-1.0-makefile.patch
 Patch1:		xforms-1.0-fix-str-fmt.patch
 BuildRequires:	X11-devel libjpeg-devel xpm-devel xpm-static-devel imake
+BuildRequires:	gccmakedep
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
