@@ -1,4 +1,4 @@
-%define major 1
+%define major 2
 %define	libname_orig libforms
 %define libname %mklibname forms %{major}
 %define	libname_devel %mklibname forms -d
@@ -7,18 +7,18 @@
 %define	name	xforms
 %define	version	1.0
 
-Name:		%{name}
+Name:		xforms
 Summary:	A X11 toolkit library
-Version:	%{version}
-Release:	%mkrel 11
+Version:	1.0.93.sp1
+Release:	%mkrel 1
 License:	LGPL
 Group:		System/Libraries
-Url:		http://world.std.com/~xforms
-Source0:	http://savannah.nongnu.org/download/xforms/stable.pkg/1.0/%{name}-%{version}.tar.bz2
-Patch0:		xforms-1.0-makefile.patch
-Patch1:		xforms-1.0-fix-str-fmt.patch
-BuildRequires:	X11-devel libjpeg-devel xpm-devel xpm-static-devel imake
-BuildRequires:	gccmakedep
+Url:		http://xforms-toolkit.org/
+Source0:	http://download.savannah.gnu.org/releases/xforms/xforms-1.0.93sp1.tar.gz
+BuildRequires:	libx11-devel
+BuildRequires:	libxpm-devel
+BuildRequires:	jpeg-devel
+BuildRequires:	GL-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -56,13 +56,11 @@ Obsoletes:	%mklibname -d -s forms 1
 This package contains the static libraries for xforms.
 
 %prep
-%setup -q 
-%patch0 -p1 -b .makefile
-%patch1 -p0 -b .str
+%setup -qn xforms-1.0.93sp1
 
 %build
-(unset RPM_OPT_FLAGS; xmkmf -a)
-make CDEBUGFLAGS="$RPM_OPT_FLAGS" REQUIREDLIBS="-lGL -ljpeg -lXpm"
+%configure2_5x
+%make
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -82,15 +80,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-, root,root)
 %_bindir/*
+%_mandir/man1/*
 
 %files -n %{libname}
 %defattr(-,root,root)
-%_libdir/*.so.*
+%_libdir/*.so.%{major}*
 
 %files -n %{libname_devel}
 %defattr(-,root,root)
 %_includedir/*
+%_mandir/man5/*
 %_libdir/*.so
+%_libdir/*.la
 
 %files -n %{libname_static_devel}
 %defattr(-,root,root)
