@@ -10,7 +10,7 @@
 Name:		xforms
 Summary:	A X11 toolkit library
 Version:	1.0.93.sp1
-Release:	%mkrel 3
+Release:	4
 License:	LGPL
 Group:		System/Libraries
 Url:		http://xforms-toolkit.org/
@@ -19,7 +19,6 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xpm)
 BuildRequires:	jpeg-devel
 BuildRequires:	GL-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 xforms is a graphical toolkit library.
