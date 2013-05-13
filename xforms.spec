@@ -15,8 +15,8 @@ License:	LGPL
 Group:		System/Libraries
 Url:		http://xforms-toolkit.org/
 Source0:	http://download.savannah.gnu.org/releases/xforms/xforms-1.0.93sp1.tar.gz
-BuildRequires:	libx11-devel
-BuildRequires:	libxpm-devel
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xpm)
 BuildRequires:	jpeg-devel
 BuildRequires:	GL-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
