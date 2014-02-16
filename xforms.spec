@@ -18,7 +18,7 @@ Source0:	http://download.savannah.gnu.org/releases/xforms/xforms-1.0.93sp1.tar.g
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xpm)
 BuildRequires:	jpeg-devel
-BuildRequires:	GL-devel
+BuildRequires:	pkgconfig(gl)
 
 %description
 xforms is a graphical toolkit library.
@@ -155,13 +155,13 @@ rm -rf $RPM_BUILD_ROOT
 * Sun Jan 01 2006 Mandriva Linux Team <http://www.mandrivaexpert.com/> 1.0-3mdk
 - Rebuild
 
-* Sat Dec 25 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 1.0-2mdk
+* Sat Dec 25 2004 Per Ã˜yvind Karlsen <peroyvind@linux-mandrake.com> 1.0-2mdk
 - fix buildrequires
 - drop useless-explicit-provides
 - fix summary-ended-with-dot
 - cosmetics
 
-* Mon Jul 14 2003 Per �yvind Karlsen <peroyvind@sintrax.net> 1.0-1mdk
+* Mon Jul 14 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 1.0-1mdk
 - 1.0
 - updated url
 - use %%mklibname
