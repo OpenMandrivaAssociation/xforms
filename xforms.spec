@@ -18,7 +18,7 @@ Source0:	http://download.savannah.gnu.org/releases/xforms/xforms-1.0.93sp1.tar.g
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xpm)
 BuildRequires:	jpeg-devel
-BuildRequires:	libgl-devel
+BuildRequires:	pkgconfig(gl)
 
 %description
 xforms is a graphical toolkit library.
