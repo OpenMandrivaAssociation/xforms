@@ -2,7 +2,6 @@
 %define libname_orig libforms
 %define libname %mklibname forms %{major}
 %define libname_devel %mklibname forms -d
-%define libname_static_devel %mklibname forms -s -d
 
 Name:		xforms
 Summary:	A X11 toolkit library
@@ -33,23 +32,13 @@ Group:		Development/C
 Provides:	%{libname_orig}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
-Obsoletes:	%mklibname -d forms 1
+Obsoletes:	%{mklibname -d forms 1} < 1.2.4
+Obsoletes:	%{mklibname -d -s forms 1} < 1.2.4
+Obsoletes:	%{mklibname forms -s -d} < 1.2.4
 
 %description -n	%{libname_devel}
 This package contains development headers and libraries for xforms.
-
 Install this if you intend to develop / compile programs with xforms.
-
-%package -n %{libname_static_devel}
-Summary:	The static development files for the xforms toolkit
-Group:		Development/C
-Provides:	%{libname_orig}-static-devel = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{libname_devel} = %{version}-%{release}
-Obsoletes:	%mklibname -d -s forms 1
-
-%description -n	%{libname_static_devel}
-This package contains the static libraries for xforms.
 
 %prep
 %setup -q
@@ -72,6 +61,3 @@ This package contains the static libraries for xforms.
 %{_includedir}/*
 %{_mandir}/man5/*
 %{_libdir}/*.so
-
-%files -n %{libname_static_devel}
-%{_libdir}/*.a
