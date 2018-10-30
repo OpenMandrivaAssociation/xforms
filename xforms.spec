@@ -6,7 +6,7 @@
 Name:		xforms
 Summary:	A X11 toolkit library
 Version:	1.2.4
-Release:	2
+Release:	3
 License:	LGPL
 Group:		System/Libraries
 Url:		http://xforms-toolkit.org/
