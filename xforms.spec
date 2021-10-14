@@ -52,8 +52,8 @@ Install this if you intend to develop / compile programs with xforms.
 %autopatch -p1
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 %configure
 %make_build
 
