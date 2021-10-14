@@ -3,6 +3,9 @@
 %define libname %mklibname forms %{major}
 %define libname_devel %mklibname forms -d
 
+# Workaround duplicate symbols
+%global optflags %{optflags} -fcommon
+
 Name:		xforms
 Summary:	A X11 toolkit library
 Version:	1.2.5pre1
