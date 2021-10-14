@@ -3,6 +3,8 @@
 %define libname %mklibname forms %{major}
 %define libname_devel %mklibname forms -d
 
+%define _empty_manifest_terminate_build 0
+
 # Workaround duplicate symbols
 %global optflags %{optflags} -fcommon
 
