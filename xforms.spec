@@ -14,6 +14,8 @@ License:	LGPL
 Group:		System/Libraries
 Url:		http://xforms-toolkit.org/
 Source0:	http://download.savannah.gnu.org/releases/xforms/%{name}-%{version}.tar.gz
+Patch0:   xforms-1.2.4-fno-common.patch
+
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xpm)
 BuildRequires:	jpeg-devel
@@ -45,6 +47,7 @@ Install this if you intend to develop / compile programs with xforms.
 
 %prep
 %setup -q
+%autopatch -p1
 
 %build
 export CC=gcc
