@@ -5,8 +5,8 @@
 
 Name:		xforms
 Summary:	A X11 toolkit library
-Version:	1.2.4
-Release:	3
+Version:	1.2.5pre1
+Release:	1
 License:	LGPL
 Group:		System/Libraries
 Url:		http://xforms-toolkit.org/
@@ -45,10 +45,10 @@ Install this if you intend to develop / compile programs with xforms.
 
 %build
 %configure
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %{_bindir}/*
