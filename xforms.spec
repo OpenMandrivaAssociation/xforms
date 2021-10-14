@@ -47,6 +47,8 @@ Install this if you intend to develop / compile programs with xforms.
 %setup -q
 
 %build
+export CC=gcc
+export CXX=g++
 %configure
 %make_build
 
