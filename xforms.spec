@@ -14,7 +14,7 @@ Version:	1.2.4
 Release:	2
 License:	LGPL
 Group:		System/Libraries
-Url:		http://xforms-toolkit.org/
+Url:		https://xforms-toolkit.org/
 Source0:	http://download.savannah.gnu.org/releases/xforms/%{name}-%{version}.tar.gz
 Patch0:   xforms-1.2.4-fno-common.patch
 
