@@ -18,6 +18,11 @@ Url:		https://xforms-toolkit.org/
 Source0:	http://download.savannah.gnu.org/releases/xforms/%{name}-%{version}.tar.gz
 Patch0:   xforms-1.2.4-fno-common.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xpm)
 BuildRequires:	jpeg-devel
